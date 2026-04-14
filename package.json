@@ -13,7 +13,8 @@
     "start": "node dist/index.js",
     "dev": "tsx src/index.ts",
     "test": "vitest run",
-    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.test.json --noEmit"
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.test.json --noEmit",
+    "smoke": "THINGS_MCP_SMOKE=1 tsx test/smoke-test.ts"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
