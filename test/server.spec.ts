@@ -23,6 +23,17 @@ describe('createMcpServer', () => {
     await Promise.all([mcp.connect(serverTransport), client.connect(clientTransport)]);
 
     const { tools } = await client.listTools();
+    const names = tools.map((t) => t.name).sort();
+    expect(names).toEqual(
+      [
+        'things_add_todo',
+        'things_complete_todo',
+        'things_list_inbox',
+        'things_list_today',
+        'things_ping',
+        'things_search',
+      ].sort(),
+    );
     const ping = tools.find((t) => t.name === 'things_ping');
     expect(ping?.name).toBe('things_ping');
 
